@@ -12,7 +12,7 @@ Welcome to the Text-Based Adventure Game! Embark on an epic journey into a mysti
 
 ## About the Game
 
-The Text-Based Adventure Game is an interactive console-based game written in Python. It offers players an immersive experience in a unique, fantasy-themed world where they make choices that determine the outcome of their adventure. The game's storyline can be easily customized to create different adventures.
+Udacity_Adventure_Game is an interactive console-based game written in Python. It offers players an immersive experience in a unique, fantasy-themed world where they make choices that determine the outcome of their adventure. The game's storyline can be easily customized to create different adventures.
 
 ## Features
 
@@ -36,6 +36,6 @@ The Text-Based Adventure Game is an interactive console-based game written in Py
 To run this game locally, make sure you have Python installed on your system. No additional dependencies are required.
 
 ```bash
-git clone https://github.com/yourusername/text-based-adventure-game.git
+git clone https://github.com/Saddamzy001/Udacity_Adventure_Game.git
 cd text-based-adventure-game
 python adventure_game.py
