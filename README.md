@@ -37,5 +37,5 @@ To run this game locally, make sure you have Python installed on your system. No
 
 ```bash
 git clone https://github.com/Saddamzy001/Udacity_Adventure_Game.git
-cd text-based-adventure-game
+cd Udacity_Adventure_Game.
 python adventure_game.py
