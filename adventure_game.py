@@ -8,59 +8,76 @@ def print_pause(msg_to_print):
     print(msg_to_print)
     time.sleep(2)
 
-def intro(item, option):
+def valid_input(prompt, options):
+    """
+    Get and validate user input from a list of options.
+    """
+    while True:
+        response = input(prompt).lower()
+        if response in options:
+            return response
+        print("Invalid input!")
+
+def intro():
     """
     Display the game's introduction.
     """
-    intro_message = (
-        "You find yourself in a mysterious forest, with tall trees and "
-        "the sound of rustling leaves all around.\n"
-        "Legend has it that a hidden treasure is concealed somewhere "
-        "in this forest, guarded by a fearsome creature.\n"
-        "In your hand, you hold a worn-out map that marks the possible "
-        "location of the treasure.\n"
-        "Before you, there's a mysterious path leading deeper into the "
-        "forest.\n"
-        "To your right, you notice a peculiar-looking tree with an "
-        "engraved symbol on its bark.\n"
-        "What would you like to do?\n"
-    )
-    print_pause(intro_message)
+    print_pause("You find yourself in a mysterious forest, with tall trees and "
+                "the sound of rustling leaves all around.")
+    print_pause("Legend has it that a hidden treasure is concealed somewhere "
+                "in this forest, guarded by a fearsome creature.")
+    print_pause("In your hand, you hold a worn-out map that marks the possible "
+                "location of the treasure.")
+    print_pause("Before you, there's a mysterious path leading deeper into the "
+                "forest.")
+    print_pause("To your right, you notice a peculiar-looking tree with an "
+                "engraved symbol on its bark.")
+    print_pause("What would you like to do?")
 
-def forest_path(item, option):
+def forest_path():
     """
     Explore the forest path and encounter fairies.
     """
-    forest_message = (
-        "You decide to follow the path into the heart of the forest.\n"
-        "The further you go, the darker and more mysterious it becomes.\n"
-        "Suddenly, you encounter a group of mischievous fairies who block "
-        "your way.\n"
-        "They demand to know why you are in their territory."
-    )
-    print_pause(forest_message)
+    print_pause("You decide to follow the path into the heart of the forest.")
+    print_pause("The further you go, the darker and more mysterious it becomes.")
+    print_pause("Suddenly, you encounter a group of mischievous fairies who block "
+                "your way.")
+    print_pause("They demand to know why you are in their territory.")
 
-    while True:
-        choice2 = input("Will you (1) try to befriend the fairies or (2) stand your "
-                        "ground and demand passage?\n")
-        if choice2 == "1":
-            befriending_message = (
-                "You approach the fairies with a friendly demeanor and offer "
-                "them some shiny trinkets you found earlier.\n"
-                "The fairies are pleased and grant you safe passage through "
-                "their forest.\n"
-                "You continue on your quest, leaving the fairies behind."
-            )
-            print_pause(befriending_message)
-            cave(item, option)
-            break
-        elif choice2 == "2":
-            standing_ground_message = (
-                "You stand your ground and insist on your right to pass.\n"
-                "The fairies take offense and cast a spell on you, turning you "
-                "into a toad!\n"
-                "Your adventure ends here, as you can't continue as a toad."
-            )
-            print_pause(standing_ground_message)
-            play_again()
-            break
+    choice2 = valid_input("Will you (1) try to befriend the fairies or (2) stand your "
+                        "ground and demand passage?", ['1', '2'])
+    if choice2 == "1":
+        print_pause("You approach the fairies with a friendly demeanor and offer "
+                    "them some shiny trinkets you found earlier.")
+        print_pause("The fairies are pleased and grant you safe passage through "
+                    "their forest.")
+        print_pause("You continue on your quest, leaving the fairies behind.")
+        cave()
+    elif choice2 == "2":
+        print_pause("You stand your ground and insist on your right to pass.")
+        print_pause("The fairies take offense and cast a spell on you, turning you "
+                    "into a toad!")
+        print_pause("Your adventure ends here, as you can't continue as a toad.")
+        play_again()
+
+# Create similar functions for enchanted_tree(), cave(), and treasure().
+
+def play_again():
+    """
+    Restart or quit the game.
+    """
+    again = valid_input("Would you like to embark on another adventure? (y/n)", ['y', 'n'])
+    if again == "y":
+        print_pause("\n\n\nExcellent! Starting a new adventure...\n\n\n")
+        play_game()
+    elif again == "n":
+        print_pause("\n\n\nThank you for playing! See you next time.\n\n\n")
+
+def play_game():
+    option = random.choice(["ancient guardian", "enigmatic spirit", "mystical "
+                        "beast", "shadowy figure", "guardian of secrets"])
+    intro()
+    forest_path()
+
+if __name__ == "__main__":
+    play_game()
