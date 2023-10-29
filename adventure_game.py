@@ -52,7 +52,7 @@ def forest_path():
         print_pause("The fairies are pleased and grant you safe passage through "
                     "their forest.")
         print_pause("You continue on your quest, leaving the fairies behind.")
-        cave()
+        cave(item, option)  # Pass the required arguments.
     elif choice2 == "2":
         print_pause("You stand your ground and insist on your right to pass.")
         print_pause("The fairies take offense and cast a spell on you, turning you "
