@@ -19,21 +19,21 @@ def intro():
     print_pause("To your right, a tree with an engraved symbol awaits.")
     print_pause("What will you do?")
 
-def encounter(item, option, scenario):
+def encounter(item, opponent, scenario):
     print_pause(scenario)
-    choice = valid_input("Will you (1) or (2)?", ['1', '2'])
+    choice = valid_input("Will you (1) or (2)? ", ['1', '2'])
     return choice
 
 def play_game():
     item = []
-    option = random.choice(["ancient guardian", "enigmatic spirit", "mystical beast", "shadowy figure", "guardian of secrets"])
+    opponent = random.choice(["ancient guardian", "enigmatic spirit", "mystical beast", "shadowy figure", "guardian of secrets"])
     intro()
 
-    choice = encounter(item, option, "You follow the path into the forest and encounter mischievous fairies blocking your way.\nThey demand to know why you're here. Will you (1) befriend them or (2) stand your ground?")
+    choice = encounter(item, opponent, "You follow the path into the forest and encounter mischievous fairies blocking your way.\nThey demand to know why you're here. Will you (1) befriend them or (2) stand your ground?")
     
     if choice == "1":
         print_pause("You befriend the fairies, who grant you safe passage. You continue on your quest.")
-        choice = encounter(item, option, "You reach a mysterious cave, said to house the treasure. As you venture further, you encounter a sleeping dragon. Will you (1) sneak past or (2) engage with your sword?")
+        choice = encounter(item, opponent, "You reach a mysterious cave, said to house the treasure. As you venture further, you encounter a sleeping dragon. Will you (1) sneak past or (2) engage with your sword?")
         
         if choice == "1":
             print_pause("You sneak past the dragon and find the treasure!")
@@ -50,7 +50,7 @@ def play_game():
     play_again()
 
 def play_again():
-    again = valid_input("Play again? (y/n)", ['y', 'n'])
+    again = valid_input("Play again? (y/n) ", ['y', 'n'])
     if again == "y":
         print_pause("Starting a new adventure...")
         play_game()
